@@ -1,0 +1,31 @@
+GET http://localhost:8080/todos
+Accept: application/json
+
+###
+GET http://localhost:8080/todos/1
+Accept: application/json
+
+###
+POST http://localhost:8080/todos
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Record Video",
+  "done": false
+}
+
+###
+PUT http://localhost:8080/todos/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Last Goind",
+  "done": false
+}
+
+###
+DELETE http://localhost:8080/todos/1
+Accept: application/json

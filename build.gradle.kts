@@ -28,5 +28,11 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-serialization-gson:$ktor_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation("mysql:mysql-connector-java:8.0.31")
+    // https://mvnrepository.com/artifact/org.ktorm/ktorm-core
+    implementation("org.ktorm:ktorm-core:3.5.0")
+    // https://mvnrepository.com/artifact/org.ktorm/ktorm-support-mysql
+    implementation("org.ktorm:ktorm-support-mysql:3.5.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

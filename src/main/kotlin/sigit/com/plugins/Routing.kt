@@ -8,12 +8,13 @@ import io.ktor.server.request.*
 import sigit.com.entities.ToDo
 import sigit.com.entities.TodoDraft
 import sigit.com.repository.InMemoryToDoRepository
+import sigit.com.repository.MySQLTodoRepository
 import sigit.com.repository.TodoRepository
 
 fun Application.configureRouting() {
     routing {
 
-        val repository: TodoRepository = InMemoryToDoRepository()
+        val repository: TodoRepository = MySQLTodoRepository()
 
         get("/") {
             call.respondText("Hello Todolist!")

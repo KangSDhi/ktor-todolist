@@ -13,7 +13,7 @@ import sigit.com.entities.TodoDraft
 
 class DatabaseManager {
 
-    private val hostname = "localhost"
+    private val hostname = "db"
     private val databaseName = "ktor_todo"
     private val username = "root"
     private val password = "toor"

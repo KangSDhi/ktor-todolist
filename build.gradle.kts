@@ -36,3 +36,9 @@ dependencies {
     implementation("org.ktorm:ktorm-support-mysql:3.5.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
+
+ktor {
+    fatJar {
+        archiveFileName.set("ktor-todolist.jar")
+    }
+}

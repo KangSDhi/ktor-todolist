@@ -1,0 +1,49 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: ktor-app
+    networks:
+      - api-network
+  db:
+    image: mysql:latest
+    container_name: ktor-db
+    restart: unless-stopped
+
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_DATABASE: ktor_todo
+      MYSQL_ROOT_PASSWORD: toor
+
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+    networks:
+      - api-network
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: ktor-pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+
+    restart: always
+    ports:
+      - 8081:80
+    networks:
+      - api-network
+
+volumes:
+  mysqldata:
+    driver: local
+
+networks:
+  api-network:
+    driver: bridge
